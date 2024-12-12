@@ -1,10 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import DraggableObject from "./DraggableObject";
+
 import {
   updateObjectPosition,
   updateObjectSize,
 } from "../store/actions/objectActions";
+
+import DraggableObject from "./DraggableObject";
 
 const Canvas = () => {
   const objects = useSelector((state) => state.objects.selectedObjects);

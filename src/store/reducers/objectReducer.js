@@ -1,5 +1,5 @@
 const initialState = {
-  selectedObjects: [], // Для хранения добавленных объектов
+  selectedObjects: [],
 };
 
 const objectReducer = (state = initialState, action) => {

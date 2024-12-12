@@ -1,10 +1,90 @@
 body {
-  margin: 10px;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid gray;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  width: 100%;
+  height: calc(100vh - 65px);
+}
+
+nav {
+  border-right: 1px solid gray;
+}
+
+nav h2 {
+  margin: 10px 0px 10px 10px;
+  font-size: 16px;
+  color: gray;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+li > li {
+  padding: 10px 20px;
+  font-weight: 600;
+  color: rgb(85, 85, 85);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+li.childElement {
+  font-weight: 400;
+  color: rgb(146, 145, 145);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a[disabled] {
+  pointer-events: none;
+}
+
+li > li > span:last-child {
+  width: calc(100% - 26px);
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+li.active {
+  background: #c4e0f1;
+  color: #5656d7;
+  position: relative;
+}
+
+li.activeChild {
+  color: #5656d7;
+}
+
+li.active::after {
+  content: "";
+  height: 41px;
+  width: 2px;
+  background: #8989bd;
+  position: absolute;
+  right: 0;
+}
+
+section {
+  background: rgb(233 230 230);
+  padding: 20px;
 }
 
 small {
@@ -46,4 +126,14 @@ small {
   color: white;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.loader {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
 }
