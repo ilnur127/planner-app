@@ -20,7 +20,7 @@ const MenuItem = (props) => {
   return (
     <li>
       <li
-        className={`${
+        className={`menuListItem ${
           location.pathname === props.menuItem.href ? "active" : ""
         } ${isActive ? "activeChild" : ""} ${
           props.setIsChildActive ? "childElement" : ""
@@ -31,7 +31,7 @@ const MenuItem = (props) => {
         ) : (
           <div style={{ width: "16px", height: "16px" }}></div>
         )}
-        <span>
+        <span className="menuListItem_title">
           <Link
             to={props.menuItem.href}
             disabled={!props.menuItem.href}
@@ -59,6 +59,7 @@ const MenuItem = (props) => {
         </span>
       </li>
       <ul
+        className="menuList"
         style={{
           display:
             props.menuItem.children?.length > 0 && !isActive ? "none" : "block",
@@ -84,11 +85,11 @@ const AppLayout = ({ children }) => {
       </Header>
       <main>
         <nav>
-          <ul>
+          <ul className="menuList">
             {MENU.map((menuGroup, i) => (
               <li>
                 <h2>{menuGroup.title.toUpperCase()}</h2>
-                <ul>
+                <ul className="menuList">
                   {menuGroup.children.map((menuGroupItem) => (
                     <MenuItem key={i} menuItem={menuGroupItem} />
                   ))}
